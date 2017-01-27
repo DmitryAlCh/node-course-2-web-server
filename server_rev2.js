@@ -21,9 +21,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res,next) => {
-  res.render('maintenace.hbs');
-});
+// app.use((req, res,next) => {
+//   res.render('maintenace.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -66,6 +66,14 @@ app.get('/bad', (req, res) => {
     errorMessage: 'Bad request',
     solutions: 'use another route'
   });
+});
+
+app.get('/projects', (req,res) => {
+  res.render('projects.hbs',{
+    pageTitle: 'Projects page',
+    header: 'Projects portfolio page',
+
+  })
 });
 
 //app.get('/my route here', function(request, response){All my actions here})
